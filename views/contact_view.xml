@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <!-- Vista del formulario de Contact Card -->
+        <record id="view_contact_form" model="ir.ui.view">
+            <field name="name">contact.form</field>
+            <field name="model">contact.card</field>
+            <field name="arch" type="xml">
+                <form string="Contact Card">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="address"/>
+                            <field name="company"/>
+                            <field name="identification"/> <!-- Nuevo campo de identificación -->
+                            <field name="country"/> <!-- Nuevo campo de país -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para abrir el formulario de Contact Card -->
+        <record id="action_contact_form" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="res_model">contact.card</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú para acceder al formulario de Contact Card -->
+        <menuitem id="menu_contacts" name="Contacts" parent="base.menu_custom"
+                  sequence="20" action="action_contact_form"/>
+    </data>
+</odoo>
